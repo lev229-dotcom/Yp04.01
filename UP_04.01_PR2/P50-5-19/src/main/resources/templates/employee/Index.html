@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Employees</title>
+</head>
+<body>
+<div class="row">
+
+<h1>Employee's list</h1>
+  <div th:each="el: ${emps}">
+    <p th:text="${el.name}"> </p>
+    <p th:text="${el.surname}"> </p>
+    <p th:text="${el.patronymic}"> </p>
+    <p th:text="${el.getAge()}"> </p>
+    <p th:text="${el.amount_of_kids}"> </p>
+    <p th:text="${el.nationality}"> </p>
+  </div>
+  <form action="/Employee/Filter" method="get">
+    <input type="text" name="search_name" placeholder="Поиск">
+    <input type="submit" placeholder="Найти">
+  </form>
+ <form action="/Employee/FilterCategorized" method="get">
+  <input type="text" name="search_name" placeholder="Поиск(с неполным совпадением)">
+  <input type="submit" placeholder="Найти">
+  </form>
+
+</div>
+<a href="/Employee/IndexAddEmp">Add Employee</a>
+<a href="/Home">Home</a>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dolj</title>
+</head>
+<body>
+<h1>Dolj list</h1>
+<div class="column">
+    <div th:each="el: ${doljs_filtered}">
+        <p th:text="${el.name}"> </p>
+        <p th:number="${el.tax}"> </p>
+        <p th:text="${el.description}"> </p>
+        <p th:text="${el.salary}"> </p>
+        <p th:text="${el.max_bonus}"> </p>
+
+    </div>
+    <form action="/Dolj/Filter" method="get">
+        <input type="text" name="search_name" placeholder="Поиск">
+        <input type="submit" placeholder="Найти">
+    </form>
+    <form action="/Dolj/FilterCategorized" method="get">
+        <input type="text" name="search_name" placeholder="Поиск(с неполным совпадением)">
+        <input type="submit" placeholder="Найти">
+    </form>
+</div>
+<a href="/Dolj/IndexAddDolj">Add Dolj</a>
+<a href="/Home">Home</a>
+</body>
+</html>

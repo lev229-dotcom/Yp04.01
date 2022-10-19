@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Zoo</title>
+</head>
+<body>
+<h1>Zoo</h1>
+<div>
+    <div th:each="el: ${listZoo}">
+        <p th:text="${el.name}"> </p>
+        <p th:text="${el.getAge()}"> </p>
+        <p th:text="${el.description}"> </p>
+    </div>
+    <form action="/Zoo/Filter" method="get">
+        <input type="text" name="search_name" placeholder="Поиск">
+        <input type="submit" placeholder="Найти">
+    </form>
+</div>
+<a href="/Zoo/IndexAddZoo">Add Animal</a>
+</body>
+
+</html>
